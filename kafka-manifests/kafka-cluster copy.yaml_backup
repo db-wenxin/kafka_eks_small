@@ -18,36 +18,6 @@ spec:
         tls: true
         authentication:
           type: tls
-
-      # WX test
-      - name: external
-        port: 9094
-        type: loadbalancer
-        tls: false #true
-        # authentication:
-        #   type: tls
-        configuration:
-          bootstrap:
-            annotations:
-              service.beta.kubernetes.io/aws-load-balancer-type: "nlb"  # Create NLB not CLB
-              service.beta.kubernetes.io/aws-load-balancer-internal: "true" # Create internal facing NLB
-          brokers:
-            - broker: 0
-              annotations:
-                service.beta.kubernetes.io/aws-load-balancer-type: "nlb"  # For Network Load Balancer on brokers
-                service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-            - broker: 1
-              annotations:
-                service.beta.kubernetes.io/aws-load-balancer-type: "nlb"  # For Network Load Balancer on brokers
-                service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-            - broker: 2
-              annotations:
-                service.beta.kubernetes.io/aws-load-balancer-type: "nlb"  # For Network Load Balancer on brokers
-                service.beta.kubernetes.io/aws-load-balancer-internal: "true"
-            - broker: 3
-              annotations:
-                service.beta.kubernetes.io/aws-load-balancer-type: "nlb"  # For Network Load Balancer on brokers
-                service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     config:
       offsets.topic.replication.factor: 3
       transaction.state.log.replication.factor: 3
