@@ -27,7 +27,7 @@ spec:
             - name: STRIMZI_LOG_LEVEL
               value: "INFO"
             - name: STRIMZI_MESSAGE_COUNT
-              value: "1000000"
+              value: "100" #"1000000"
             - name: KAFKA_BOOTSTRAP_SERVERS
               value: cluster-kafka-bootstrap:9092
             - name: KAFKA_KEY_SERIALIZER
@@ -57,7 +57,7 @@ spec:
           image: quay.io/strimzi-examples/java-kafka-streams:latest
           env:
             - name: STRIMZI_SOURCE_TOPIC
-              value: my-topic
+              value: my-topic-wx
             - name: STRIMZI_TARGET_TOPIC
               value: my-topic-reversed
             - name: STRIMZI_LOG_LEVEL
